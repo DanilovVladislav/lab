@@ -1,0 +1,784 @@
+<!doctype html>
+<html>
+	<head>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- title -->
+		<title>Алгебра</title>
+
+		<!-- load style -->
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/my.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		
+		<!--Fonts-->
+		<link rel="stylesheet" 
+			href="css/font-awesome-4.3.0/css/font-awesome.min.css">
+
+		<style>
+			.matrixInput{
+				width:100px;
+				height: 100px;
+				
+			}
+
+			.matrixSumExample{
+				font-size: 14px;
+			}
+		</style>
+
+	</head>
+	<body>
+		
+		<div class="reveal">
+	
+			<div class="slides">
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						Алгебра
+						=======
+					</script>
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+					## Матрицы
+					</script>
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Определение
+						Матрица - объект, записываемый в виде прямоугольной таблицы элементов кольца или поля, которая представляет собой совокупность строк и столбцов, на пересечении которых находятся её элементы.
+					</script>
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Определение
+						Квадратная матрица - матрица, у которой число столбов равно числу строк.
+						
+						Пример:
+	
+						$$
+						\begin{pmatrix}
+						2 & 3 & -1 & 13 \\ 
+						11 & 24 & 0 & 2 \\ 
+						0 & 0 & 11 & 0 \\ 
+						3 & -6 & 17 & 2
+						\end{pmatrix}
+						$$
+	
+						
+					</script>
+
+				</section>	
+				
+				<section data-markdown class="center">
+						<script type="text/template">
+							## Определение
+							Диагональная матрица - квадратная матрица, у которой все элементы, кроме главной диагонали, не равны нулю.
+		
+							Пример:
+		
+							$$
+							\begin{pmatrix}
+							a_{0,0} & 0 & \cdots & 0 \\ 
+							0 & a_{1,1} & \cdots & 0 \\ 
+							\cdots & \cdots & \cdots & \cdots \\ 
+							0 & 0 & \cdots & a_{n,n}
+							\end{pmatrix}
+							$$
+						</script>
+	
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Операции над матрицами
+					</script>
+
+				</section>
+
+				<!-- Сумма матриц (алгоритм и пример) -->
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Сумма матриц
+						Сложение матриц $A$ и$B$ это арифметическая операция, в результате которой должна получаться матрица $C$, каждый элемент которой равен сумме соответствующих элементов складываемых матриц:
+
+						$$ c_{ij} = a_{ij} + b_{ij}$$
+					</script>
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Сумма матриц
+						Более подробно формула сложения двух матриц выглядит так:
+
+						<div class = "matrixSumExample">
+						
+
+						$$
+						A + B = \begin{pmatrix}
+						a_{0,0} & a_{0,1} \\ 
+						a_{1,0} & a_{1,1} 
+						\end{pmatrix}
+						+
+						\begin{pmatrix}
+						b_{0,0} & b_{0,1} \\ 
+						b_{1,0} & b_{1,1}
+						\end{pmatrix}
+						=
+						\begin{pmatrix}
+						a_{0,0} + b_{0,0} & a_{0,1} + b_{0,1} \\ 
+						a_{1,0} + b_{1,0} & a_{1,1} + b_{1,1} 
+						\end{pmatrix}
+						
+						$$
+						</div>
+
+
+					</script>
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Умножение матриц
+						Результатом умножения матриц $A_{m \cdot n}$ и $B_{n \cdot k}$ будет матрица $C_{m \cdot k}$ такая, что элемент матрицы C, стоящий в i-той строке и j-том столбце $(c_{ij})$, равен сумме произведений элементов i-той строки матрицы $A$ на соответстующие элементы j-того столбца матрицы $B$:
+
+						$$ c_{ij} = a_{i1} \cdot b_{1j} + a_{i2} \cdot b_{2j} + \ldots + a_{in} \cdot b_{nj} $$
+					</script>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Умножение матриц
+						Пример
+
+
+						$$
+						A \cdot B = \begin{pmatrix}
+						a & b \\ 
+						c & d 
+						\end{pmatrix}
+						\begin{pmatrix}
+						e & g \\ 
+						g & h
+						\end{pmatrix}
+						=
+						\begin{pmatrix}
+						 ae + bf & ag + bh  \\ 
+						 ce + df & cg + dh
+						\end{pmatrix}
+						$$
+						
+					</script>
+
+				</section>
+
+				
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Определитель матрицы
+						Определитель в линейной алгебре - скалярная величина, которая характеризует ориентированное "растяжение" или "сжатие" многомерного евклидова пространства после преобразования матрицей.
+						
+						Стандартные обозначения:
+
+						$$
+						det(A), |A|, \Delta (A)
+						$$
+						
+					</script>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Определитель матрицы
+					
+						Алгоритмы нахождения:
+
+						$$
+						\begin{vmatrix}
+						a_{11} & a_{12}\\
+						a_{21} & a_{22}
+						\end{vmatrix}
+						=
+						a_{11} \cdot a_{22} - a_{21} \cdot a_{12}
+						$$
+
+						$$
+						\begin{vmatrix}
+						a_{11} & a_{12} & a_{13} \\
+						a_{21} & a_{22} & a_{23} \\
+						a_{31} & a_{32} & a_{33} 
+						\end{vmatrix}
+						=
+						a_{11} \cdot
+						\begin{vmatrix} 
+						a_{22} & a_{23}\\
+						a_{32} & a_{33}
+						\end{vmatrix}
+						-
+						a_{12} \cdot
+						\begin{vmatrix} 
+						a_{21} & a_{23}\\
+						a_{31} & a_{33}
+						\end{vmatrix}
+						+
+						a_{13} \cdot
+						\begin{vmatrix} 
+						a_{21} & a_{22}\\
+						a_{31} & a_{32}
+						\end{vmatrix}
+						$$
+
+
+					</script>
+
+				</section>
+
+
+				<section id="MatrixSum">
+					<h2>Сложение матриц</h2>
+					<textarea id="_matrix_a" class="matrixInput"></textarea>
+					$+$
+					<textarea id="_matrix_b" class="matrixInput"></textarea>
+					<input type="button" value="Посчитать" id = "_getSumResult">
+					<output id="_result"></output>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Код программы
+						```
+						window.onload = () => {
+							document.querySelector('#_getSumResult').onclick = () => {
+								
+								let a = document.querySelector('#_matrix_a').value;
+								let b = document.querySelector('#_matrix_b').value;
+								a = a.split("\n");
+								for (let i in a) {
+								a[i] = a[i].split(" ");
+								}
+								b = b.split("\n");
+								for (let i in b) {
+								b[i] = b[i].split(" ");
+								}
+								resultMatrix = matrixSum(a,b);
+								let resultTex = "\\begin{pmatrix}"+resultMatrix.map(row => row.join(" & ")).join("\\\\") + "\\end{pmatrix}";
+								document.getElementById("_result").innerHTML = katex.renderToString(resultTex);
+			
+							}
+
+							function matrixSum(a,b)
+								{
+									let aNumRows = a.length;
+									let aNumCols = a[0].length;
+									let bNumRows = b.length;
+									let bNumCols = b[0].length;
+									result = new Array(aNumRows)
+					
+									for(let i=0; i<aNumRows;i++)
+									{
+										result[i]=new Array(bNumCols)
+										for(let j = 0;j<aNumCols;j++)
+										{
+											result[i][j]=+a[i][j]+ +b[i][j];
+										}
+									}
+									return result;
+								};
+						```
+
+					</script>
+				</section>
+
+				<section id="MatrixDot">
+					<h2>Умножение матриц</h2>
+					<textarea id="matrix_a" class="matrixInput"></textarea>
+					$\cdot$
+					<textarea id="matrix_b" class="matrixInput"></textarea>
+					<input type="button" value="Посчитать" id = "getMulResult">
+					<output id="result"></output>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Код программы
+						```
+						window.onload = () => {
+							document.querySelector('#getMulResult').onclick = () => {
+								let a = document.querySelector('#matrix_a').value;
+								let b = document.querySelector('#matrix_b').value;
+								a = a.split("\n");
+								for (let i in a) {
+								a[i] = a[i].split(" ");
+								}
+								b = b.split("\n");
+								for (let i in b) {
+								b[i] = b[i].split(" ");
+								}
+			
+								resultMatrix = matrixMul(a,b);
+								let resultTex = "\\begin{pmatrix}"+resultMatrix.map(row => row.join(" & ")).join("\\\\") + "\\end{pmatrix}";
+								document.getElementById("result").innerHTML = katex.renderToString(resultTex);
+							}
+
+							function matrixMul(a,b) {
+								let aNumRows = a.length;
+								let aNumCols = a[0].length;
+								let bNumRows = b.length;
+								let bNumCols = b[0].length;
+								result = new Array(aNumRows)
+								for (let i=0;i< aNumRows;i++)
+								{
+									result[i]=new Array(bNumCols)
+									for (let j = 0; j< bNumCols; j++)
+									{
+										result[i][j]=0;
+										for (let k = 0; k< aNumCols; k++)
+										{
+											result[i][j]+=a[i][k]*b[k][j];
+										}
+									}
+								}
+								return result;
+							};
+						```
+
+					</script>
+				</section>
+
+				<section id="MatrixDet2">
+					<h4>Нахождение определителя матрицы второго порядка</h4>
+					<textarea id="matrix_second" class="matrixInput"></textarea>
+					<input type="button" value="Посчитать" id = "getSecDet">
+					<output id="result_sec"></output>
+
+				</section>
+
+			
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Код программы
+						```
+						window.onload = () => {
+							document.querySelector('#getSecDet').onclick = () => {
+								let a = document.querySelector('#matrix_second').value;
+								a = a.split("\n");
+								for (let i in a) {
+								a[i] = a[i].split(" ");
+								}
+								let result = secDet(a);
+								document.getElementById("result_sec").innerHTML = katex.renderToString(result.toString());
+							}
+						}
+
+						function secDet(a)
+							{
+								let aa = a[0][0];
+								let b = a[0][1];
+								let c = a[1][0];
+								let d = a[1][1];
+								let det = aa*d-b*c;
+								return det;
+							};
+
+						```
+					</script>
+
+				</section>
+
+				<section id="MatrixDet3">
+					<h4>Нахождение определителя матрицы третьего порядка</h4>
+					<textarea id="matrix_third" class="matrixInput"></textarea>
+					<input type="button" value="Посчитать" id = "getThirdDet">
+					<output id="result_third"></output>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Код программы
+						```
+						window.onload = () => {
+							document.querySelector('#getThirdDet').onclick = () => {
+								let a = document.querySelector('#matrix_third').value;
+								a = a.split("\n");
+								for (let i in a) {
+								a[i] = a[i].split(" ");
+								}
+								let result = thirdDet(a);
+								document.getElementById("result_third").innerHTML = katex.renderToString(result.toString());
+							}
+						}
+
+						function thirdDet(matrix) {
+				
+							let a = matrix[0][0];
+							let b = matrix[0][1];
+							let c = matrix[0][2];
+							let d = matrix[1][0];
+							let e = matrix[1][1];
+							let f = matrix[1][2];
+							let g = matrix[2][0];
+							let h = matrix[2][1];
+							let i = matrix[2][2];
+			
+							let det = a * secDet([[e, f], [h, i]]) - b * secDet([[d, f], [g, i]]) + c * secDet([[d, e], [g, h]]);
+							
+							return det;
+						};
+
+						```
+						
+					</script>
+
+				</section>
+
+				<section id="MatrixDet4">
+					<h4>Нахождение определителя матрицы четвертого порядка</h4>
+					<textarea id="matrix_fourth" class="matrixInput"></textarea>
+					<input type="button" value="Посчитать" id = "getFourthDet">
+					<output id="result_fourth"></output>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Код программы
+						```
+						window.onload = () => {
+							document.querySelector('#getFourthDet').onclick = () => {
+								let a = document.querySelector('#matrix_fourth').value;
+								a = a.split("\n");
+								for (let i in a) {
+								a[i] = a[i].split(" ");
+								}
+								let result = fourthDet(a);
+								document.getElementById("result_fourth").innerHTML = katex.renderToString(result.toString());
+							}
+						}
+
+						function fourthDet(matrix) {
+				
+							let a = matrix[0][0];
+							let b = matrix[0][1];
+							let c = matrix[0][2];
+							let d = matrix[0][3];
+							let e = matrix[1][0];
+							let f = matrix[1][1];
+							let g = matrix[1][2];
+							let h = matrix[1][3];
+							let i = matrix[2][0];
+							let j = matrix[2][1];
+							let k = matrix[2][2];
+							let l = matrix[2][3];
+							let m = matrix[3][0];
+							let n = matrix[3][1];
+							let o = matrix[3][2];
+							let p = matrix[3][3];
+			
+							let det =
+								a * thirdDet([[f, g, h], [j, k, l], [n, o, p]]) -
+								b * thirdDet([[e, g, h], [i, k, l], [m, o, p]]) +
+								c * thirdDet([[e, f, h], [i, j, l], [m, n, p]]) -
+								d * thirdDet([[e, f, g], [i, j, k], [m, n, o]]);
+			
+							return det;
+						}
+
+						```
+						
+					</script>
+
+				</section>
+
+				<section data-markdown class="center">
+					<script type="text/template">
+						## Спасибо за внимание!
+					</script>
+
+				</section>
+
+			</div>
+
+				
+
+		</div>
+
+		<!-- load js -->
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="js/lib.js"></script>
+		<!-- Библиотека для математики -->
+		<script src="lib/js/math.min.js"></script>
+		<!-- Библиотека для математики -->
+		<script src="lib/js/algebrite.bundle-for-browser.js"></script>
+		<!-- Библиотека для рисования графиков -->
+		<script src="lib/js/plotly.min.js"></script>
+
+		
+		
+		
+		
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				
+				// save slide
+				history: true,
+				slideNumber: true,
+				touch: true,
+
+				// show katex error
+				math: {
+					notificationsEnabled: true,
+				},
+
+				menu: {
+					side: 'left', //Расположение меню
+					numbers: true, //Нумерация слайдов
+					markers: true, //Маркер посещения
+					titleSelector: 'h1, h2, h3, h4, h5, h6', //Заголовки, отображаемые в меню
+					useTextContentForMissingTitles: true, //Если заголовка нет, то подставляем первые слова слайда
+					hideMissingTitles: false, //Если заголовка нет, то скрываем слайд из меню
+					transitions: true, //Установить меню анимации
+					openButton: true, //Скрыть кнопку меню
+					keyboard: true, //Открытие меню по кнопке m
+				},
+
+				// load dependencies
+				dependencies: [
+					{
+						// tex
+						src: 'plugin/math-katex/math-katex.js', 
+						async: true,
+						callback: () => {
+							// solve problem with katex 
+							let section = document.querySelectorAll('section script');
+								section.forEach( (item, i) => {
+									section[i].innerHTML = section[i].innerHTML
+										.replace(/\\/g,'\\\\')
+										.replace(/_/g,'\\_')
+										.replace(/\{/g,'\\\{')
+										.replace(/\}/g,'\\\}');
+							});
+						},
+					}, { 
+						//markdown
+						src: 'plugin/markdown/marked.js',
+					}, { 
+						src: 'plugin/markdown/markdown.js', 
+						async: true,
+					},{ 
+						//Menu
+						src: 'plugin/menu/menu.js',
+						async: true
+					},{ 
+						//notes
+						src: 'plugin/notes/notes.js', 
+						async: true
+					}, { 
+						// highlight syntax
+						src: 'plugin/highlight/highlight.js', 
+						async: true, 
+						callback: () => {
+							//Костыль для совместной работы katex и markdown
+							let code = document.querySelectorAll('code');
+							code.forEach ( (item, i) => {
+								code[i].innerHTML = code[i].innerHTML
+									.replace(/\\{/g,'{')
+									.replace(/\\}/g,'}');
+							});
+							hljs.initHighlightingOnLoad();
+						}
+					}
+				]
+			});
+
+		
+			
+		</script>
+
+		<script>
+			function matrixMul(a,b) {
+				let aNumRows = a.length;
+				let aNumCols = a[0].length;
+				let bNumRows = b.length;
+				let bNumCols = b[0].length;
+				result = new Array(aNumRows)
+				for (let i=0;i< aNumRows;i++)
+				{
+					result[i]=new Array(bNumCols)
+					for (let j = 0; j< bNumCols; j++)
+					{
+						result[i][j]=0;
+						for (let k = 0; k< aNumCols; k++)
+						{
+							result[i][j]+=a[i][k]*b[k][j];
+						}
+					}
+				}
+				return result;
+			};
+
+			function matrixSum(a,b)
+			{
+				let aNumRows = a.length;
+				let aNumCols = a[0].length;
+				let bNumRows = b.length;
+				let bNumCols = b[0].length;
+				result = new Array(aNumRows)
+
+				for(let i=0; i<aNumRows;i++)
+				{
+					result[i]=new Array(bNumCols)
+					for(let j = 0;j<aNumCols;j++)
+					{
+						result[i][j]=+a[i][j]+ +b[i][j];
+					}
+				}
+				return result;
+			};
+
+			function secDet(matrix)
+			{
+				let a = matrix[0][0];
+				let b = matrix[0][1];
+				let c = matrix[1][0];
+				let d = matrix[1][1];
+				let det = a*d-b*c;
+				return det;
+			};
+
+			function thirdDet(matrix) {
+				
+				let a = matrix[0][0];
+				let b = matrix[0][1];
+				let c = matrix[0][2];
+				let d = matrix[1][0];
+				let e = matrix[1][1];
+				let f = matrix[1][2];
+				let g = matrix[2][0];
+				let h = matrix[2][1];
+				let i = matrix[2][2];
+
+				let det = a * secDet([[e, f], [h, i]]) - b * secDet([[d, f], [g, i]]) + c * secDet([[d, e], [g, h]]);
+				
+				return det;
+			};
+
+			function fourthDet(matrix) {
+				
+				let a = matrix[0][0];
+				let b = matrix[0][1];
+				let c = matrix[0][2];
+				let d = matrix[0][3];
+				let e = matrix[1][0];
+				let f = matrix[1][1];
+				let g = matrix[1][2];
+				let h = matrix[1][3];
+				let i = matrix[2][0];
+				let j = matrix[2][1];
+				let k = matrix[2][2];
+				let l = matrix[2][3];
+				let m = matrix[3][0];
+				let n = matrix[3][1];
+				let o = matrix[3][2];
+				let p = matrix[3][3];
+
+				let det =
+					a * thirdDet([[f, g, h], [j, k, l], [n, o, p]]) -
+					b * thirdDet([[e, g, h], [i, k, l], [m, o, p]]) +
+					c * thirdDet([[e, f, h], [i, j, l], [m, n, p]]) -
+					d * thirdDet([[e, f, g], [i, j, k], [m, n, o]]);
+
+				return det;
+			}
+
+		</script>
+
+		<script>
+			window.onload = () => {
+				document.querySelector('#_getSumResult').onclick = () => {
+					
+					let a = document.querySelector('#_matrix_a').value;
+					let b = document.querySelector('#_matrix_b').value;
+					a = a.split("\n");
+					for (let i in a) {
+					a[i] = a[i].split(" ");
+					}
+					b = b.split("\n");
+					for (let i in b) {
+					b[i] = b[i].split(" ");
+					}
+					resultMatrix = matrixSum(a,b);
+					let resultTex = "\\begin{pmatrix}"+resultMatrix.map(row => row.join(" & ")).join("\\\\") + "\\end{pmatrix}";
+					document.getElementById("_result").innerHTML = katex.renderToString(resultTex);
+
+				}
+
+				document.querySelector('#getMulResult').onclick = () => {
+					let a = document.querySelector('#matrix_a').value;
+					let b = document.querySelector('#matrix_b').value;
+					a = a.split("\n");
+					for (let i in a) {
+					a[i] = a[i].split(" ");
+					}
+					b = b.split("\n");
+					for (let i in b) {
+					b[i] = b[i].split(" ");
+					}
+
+					resultMatrix = matrixMul(a,b);
+					let resultTex = "\\begin{pmatrix}"+resultMatrix.map(row => row.join(" & ")).join("\\\\") + "\\end{pmatrix}";
+					document.getElementById("result").innerHTML = katex.renderToString(resultTex);
+				}
+
+				document.querySelector('#getSecDet').onclick = () => {
+					let a = document.querySelector('#matrix_second').value;
+					a = a.split("\n");
+					for (let i in a) {
+					a[i] = a[i].split(" ");
+					}
+					let result = secDet(a);
+					document.getElementById("result_sec").innerHTML = katex.renderToString(result.toString());
+				}
+
+				document.querySelector('#getThirdDet').onclick = () => {
+					let a = document.querySelector('#matrix_third').value;
+					a = a.split("\n");
+					for (let i in a) {
+					a[i] = a[i].split(" ");
+					}
+					let result = thirdDet(a);
+					document.getElementById("result_third").innerHTML = katex.renderToString(result.toString());
+				}
+
+				document.querySelector('#getFourthDet').onclick = () => {
+					let a = document.querySelector('#matrix_fourth').value;
+					a = a.split("\n");
+					for (let i in a) {
+					a[i] = a[i].split(" ");
+					}
+					let result = fourthDet(a);
+					document.getElementById("result_fourth").innerHTML = katex.renderToString(result.toString());
+				}
+			};
+		</script>
+	</body>
+</html>
